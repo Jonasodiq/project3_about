@@ -459,28 +459,48 @@ li {
 .about {
   height: 100vh;
   display: grid;
-  padding: 32px;
+  padding: var(--gap-m) var(--gap-m);
   color: var(--color-light);
 }
+@media screen and (max-width: 30rem) {
+  .about {
+    padding: var(--gap-s) var(--gap-s);
+  }
+}
 .about-section {
-  padding: 50px;
+  padding: var(--gap-m) var(--gap-m);
   text-align: center;
-  background-color: #dedede;
+  background-color: var(--color-light-200);
   color: rgb(0, 0, 0);
 }
+@media screen and (max-width: 30rem) {
+  .about {
+    padding: var(--gap-s) var(--gap-s);
+  }
+}
+.about__us {
+  font-size: var(--font-size-6);
+  font-size: clamp(var(--font-size-2), 5vw, var(--font-size-6));
+  font-weight: 300;
+  margin: 0.5rem 0 0 0;
+  color: var(--color-accent);
+}
 .about__team {
+  font-size: var(--font-size-6);
+  font-size: clamp(var(--font-size-2), 5vw, var(--font-size-6));
+  padding: 4px;
   text-align: center;
-  color: black;
+  color: var(--color-accent);
 }
 
 .cards {
-  background: #eee;
-  padding: 50px;
+  background: var(--color-light-200);
+  padding: 0;
 }
 
 .card {
   max-width: 300px;
-  background: white;
+  background: var(--color-light);
   padding: 20px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.4);
   flex-grow: 1;
@@ -498,18 +518,46 @@ li {
   margin: 0;
 }
 .card__title {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
-  color: #000;
+  color: var(--color-accent);
 }
 .card__meta {
   display: flex;
   justify-content: space-between;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.card__readmore, .card__share {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: #00a9e2;
+.card__button {
+  background-color: transparent;
+  color: var(--color-light);
+  border: 0;
+  padding: 0;
+  font-size: var(--font-size-2);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-s);
+}
+.card__button svg {
+  opacity: 0.34;
+}
+.card__button:hover {
+  background-color: transparent;
+  color: var(--color-light);
+}
+@media screen and (max-width: 40rem) {
+  .card__button {
+    font-size: var(--font-size-1);
+  }
+}
+.card__button svg {
+  transition: all 0.2s;
+}
+.card__button:hover svg {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+.card__readmore, .card__share, .card__tag, .card__date {
+  font-size: var(--font-size-1);
+  color: var(--color-dark-300);
   text-decoration: none;
 }
 .card__tags {
@@ -517,14 +565,9 @@ li {
   margin: 0;
   padding: 0;
 }
-.card__tag {
-  color: #00a9e2;
-  display: inline;
-}
-.card__date, .card__content p {
-  font-family: Georgia, "Times New Roman", Times, serif;
+.card__content p {
   line-height: 1.5;
-  color: #000;
+  color: var(--color-light-700);
 }
 .card__footer {
   display: flex;
